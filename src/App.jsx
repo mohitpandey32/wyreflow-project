@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navigation } from './components/Navigation/Navigation';
 import { Hero } from './components/Hero/Hero';
 import { Services } from './components/Services/Services';
+import { Showcase } from './components/Showcase/Showcase';
 import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
 import './App.css';
@@ -73,6 +74,7 @@ function App() {
       
       <Hero scrollToSection={scrollToSection} />
       <Services />
+      <Showcase  />
       <Contact />
       <Footer />
     </div>
