@@ -1,0 +1,118 @@
+/* App Base Styles */
+.app {
+  min-height: 100vh;
+  background: #000;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Cursor Follower */
+.cursor-follower {
+  position: fixed;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 50;
+  mix-blend-mode: difference;
+  transition: transform 0.15s ease-out;
+}
+
+/* Global Animations */
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+  }
+  50% { 
+    opacity: 0.5; 
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-1.25rem) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-0.625rem) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-1.875rem) rotate(-1deg);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(3.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility Classes */
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite 4s;
+}
+
+.animate-slide-up {
+  animation: slideUp 1.2s ease-out;
+}
+
+.animate-slide-up-delayed {
+  animation: slideUp 1.2s ease-out 0.4s both;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .animate-float,
+  .animate-float-delayed {
+    animation: none;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse {
+    animation: none;
+  }
+}
